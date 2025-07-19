@@ -1,3 +1,127 @@
+// Jackets
+export const jackets = [
+    {
+    id: 13,
+    name: "Denim Jacket",
+    imageUrl: "/images/jacket-3.jpg",
+    description:
+      "This sturdy denim jacket is a classic piece for any casual wardrobe. Designed with a traditional button-down front, chest pockets, and a tailored fit, it pairs effortlessly with almost any outfit. Whether you’re dressing it up with a button-down shirt or keeping it casual with a tee, this jacket is a must-have for year-round versatility.",
+
+    price: 59.99,
+    uniqueCode: "J003",
+    quantity: 1,
+    inCart: false,
+  },
+  {
+    id: 11,
+    name: "Leather Jacket",
+    imageUrl: "/images/jacket-1.jpg",
+    description:
+      "This timeless leather jacket is a wardrobe staple for a bold and edgy look. Made from premium quality leather, it features a sleek design with zippered pockets, a standing collar, and a comfortable lining. Perfect for adding sophistication to casual outfits or making a statement during evenings out, this jacket combines durability with undeniable style.",
+
+    price: 199.99,
+    uniqueCode: "S001",
+    quantity: 1,
+    inCart: false,
+  },
+  {
+    id: 19,
+    name: "Peacoat",
+    imageUrl: "/images/jacket-9.jpg",
+    description:
+      "This stylish peacoat adds sophistication to your winter wardrobe. Crafted from high-quality wool-blend fabric, it features a double-breasted front, notch lapels, and a tailored fit. The warm and luxurious design makes it an excellent choice for formal events or chic everyday wear.",
+
+    price: 119.99,
+    uniqueCode: "J009",
+    quantity: 1,
+    inCart: false,
+  },
+  {
+    id: 16,
+    name: "Windbreaker Jacket",
+    imageUrl: "/images/jacket-6.jpg",
+    description:
+      "Lightweight and functional, this windbreaker jacket is perfect for outdoor activities. With its water-resistant fabric and adjustable hood, it provides protection from wind and light rain. Compact and easy to pack, this jacket is a practical choice for hiking, running, or casual wear during unpredictable weather.",
+
+    price: 49.99,
+    uniqueCode: "J006",
+    quantity: 1,
+    inCart: false,
+  },
+  {
+    id: 12,
+    name: "Bomber Jacket",
+    imageUrl: "/images/jacket-2.jpg",
+    description:
+      "The bomber jacket is the ultimate blend of comfort and style. With ribbed cuffs, hem, and collar, it delivers a snug fit and classic appeal. Crafted from high-quality fabric, it offers excellent warmth and durability. This versatile jacket is perfect for casual outings, layering over tees, or pairing with jeans for a laid-back look.",
+
+    price: 79.99,
+    uniqueCode: "J002",
+    quantity: 1,
+    inCart: false,
+  },
+  {
+    id: 14,
+    name: "Puffer Jacket",
+    imageUrl: "/images/jacket-4.jpg",
+    description:
+      "Stay warm and stylish with this insulated puffer jacket. Its quilted design traps heat to provide superior warmth during cold weather. Featuring a water-resistant exterior, zippered pockets, and a high neck for added protection, this jacket is ideal for outdoor adventures or braving chilly commutes.",
+
+    price: 89.99,
+    uniqueCode: "J004",
+    quantity: 1,
+    inCart: false,
+  },
+  {
+    id: 15,
+    name: "Trench Coat",
+    imageUrl: "/images/jacket-5.jpg",
+    description:
+      "A classic trench coat with a tailored fit and timeless design. Made from premium materials, it features a belted waist, double-breasted closure, and a versatile silhouette. Perfect for layering over workwear or casual outfits, this coat combines functionality and elegance, making it ideal for cooler weather.",
+
+    price: 129.99,
+    uniqueCode: "J005",
+    quantity: 1,
+    inCart: false,
+  },
+  {
+    id: 17,
+    name: "Hooded Jacket",
+    imageUrl: "/images/jacket-7.jpg",
+    description:
+      "This hooded jacket offers extra protection from the elements with its integrated hood and durable design. Featuring a comfortable fit, zippered front, and multiple pockets, it’s both practical and stylish. Whether you're braving the rain or adding a layer to your outfit, this jacket is a reliable choice.",
+
+    price: 69.99,
+    uniqueCode: "J007",
+    quantity: 1,
+    inCart: false,
+  },
+  {
+    id: 18,
+    name: "Varsity Jacket",
+    imageUrl: "/images/jacket-8.jpg",
+    description:
+      "Step up your style with this varsity jacket, a classic piece with a sporty vibe. It features ribbed cuffs, collar, and hem for a snug fit, along with contrast sleeves for a standout look. Made from durable and comfortable materials, this jacket is perfect for casual outings or layering over your favorite tee.",
+
+    price: 79.99,
+    uniqueCode: "J008",
+    quantity: 1,
+    inCart: false,
+  },
+  {
+    id: 20,
+    name: "Blazer Jacket",
+    imageUrl: "/images/jacket-10.jpg",
+    description:
+      "This tailored blazer jacket is a versatile addition to your wardrobe. Whether for professional settings or smart-casual occasions, its elegant design and polished finish ensure you always look sharp. Made from high-quality fabric, it features a single-breasted front, notched lapels, and functional pockets.",
+
+    price: 149.99,
+    uniqueCode: "JO10",
+    quantity: 1,
+    inCart: false,
+  },
+];
+
 // Hoodies
 export const hoodies = [
   {
@@ -117,130 +241,6 @@ export const hoodies = [
 
     price: 39.99,
     uniqueCode: "H010",
-    quantity: 1,
-    inCart: false,
-  },
-];
-
-// Jackets
-export const jackets = [
-  {
-    id: 11,
-    name: "Leather Jacket",
-    imageUrl: "/images/jacket-1.jpg",
-    description:
-      "This timeless leather jacket is a wardrobe staple for a bold and edgy look. Made from premium quality leather, it features a sleek design with zippered pockets, a standing collar, and a comfortable lining. Perfect for adding sophistication to casual outfits or making a statement during evenings out, this jacket combines durability with undeniable style.",
-
-    price: 199.99,
-    uniqueCode: "S001",
-    quantity: 1,
-    inCart: false,
-  },
-  {
-    id: 12,
-    name: "Bomber Jacket",
-    imageUrl: "/images/jacket-2.jpg",
-    description:
-      "The bomber jacket is the ultimate blend of comfort and style. With ribbed cuffs, hem, and collar, it delivers a snug fit and classic appeal. Crafted from high-quality fabric, it offers excellent warmth and durability. This versatile jacket is perfect for casual outings, layering over tees, or pairing with jeans for a laid-back look.",
-
-    price: 79.99,
-    uniqueCode: "J002",
-    quantity: 1,
-    inCart: false,
-  },
-  {
-    id: 13,
-    name: "Denim Jacket",
-    imageUrl: "/images/jacket-3.jpg",
-    description:
-      "This sturdy denim jacket is a classic piece for any casual wardrobe. Designed with a traditional button-down front, chest pockets, and a tailored fit, it pairs effortlessly with almost any outfit. Whether you’re dressing it up with a button-down shirt or keeping it casual with a tee, this jacket is a must-have for year-round versatility.",
-
-    price: 59.99,
-    uniqueCode: "J003",
-    quantity: 1,
-    inCart: false,
-  },
-  {
-    id: 14,
-    name: "Puffer Jacket",
-    imageUrl: "/images/jacket-4.jpg",
-    description:
-      "Stay warm and stylish with this insulated puffer jacket. Its quilted design traps heat to provide superior warmth during cold weather. Featuring a water-resistant exterior, zippered pockets, and a high neck for added protection, this jacket is ideal for outdoor adventures or braving chilly commutes.",
-
-    price: 89.99,
-    uniqueCode: "J004",
-    quantity: 1,
-    inCart: false,
-  },
-  {
-    id: 15,
-    name: "Trench Coat",
-    imageUrl: "/images/jacket-5.jpg",
-    description:
-      "A classic trench coat with a tailored fit and timeless design. Made from premium materials, it features a belted waist, double-breasted closure, and a versatile silhouette. Perfect for layering over workwear or casual outfits, this coat combines functionality and elegance, making it ideal for cooler weather.",
-
-    price: 129.99,
-    uniqueCode: "J005",
-    quantity: 1,
-    inCart: false,
-  },
-  {
-    id: 16,
-    name: "Windbreaker Jacket",
-    imageUrl: "/images/jacket-6.jpg",
-    description:
-      "Lightweight and functional, this windbreaker jacket is perfect for outdoor activities. With its water-resistant fabric and adjustable hood, it provides protection from wind and light rain. Compact and easy to pack, this jacket is a practical choice for hiking, running, or casual wear during unpredictable weather.",
-
-    price: 49.99,
-    uniqueCode: "J006",
-    quantity: 1,
-    inCart: false,
-  },
-  {
-    id: 17,
-    name: "Hooded Jacket",
-    imageUrl: "/images/jacket-7.jpg",
-    description:
-      "This hooded jacket offers extra protection from the elements with its integrated hood and durable design. Featuring a comfortable fit, zippered front, and multiple pockets, it’s both practical and stylish. Whether you're braving the rain or adding a layer to your outfit, this jacket is a reliable choice.",
-
-    price: 69.99,
-    uniqueCode: "J007",
-    quantity: 1,
-    inCart: false,
-  },
-  {
-    id: 18,
-    name: "Varsity Jacket",
-    imageUrl: "/images/jacket-8.jpg",
-    description:
-      "Step up your style with this varsity jacket, a classic piece with a sporty vibe. It features ribbed cuffs, collar, and hem for a snug fit, along with contrast sleeves for a standout look. Made from durable and comfortable materials, this jacket is perfect for casual outings or layering over your favorite tee.",
-
-    price: 79.99,
-    uniqueCode: "J008",
-    quantity: 1,
-    inCart: false,
-  },
-  {
-    id: 19,
-    name: "Peacoat",
-    imageUrl: "/images/jacket-9.jpg",
-    description:
-      "This stylish peacoat adds sophistication to your winter wardrobe. Crafted from high-quality wool-blend fabric, it features a double-breasted front, notch lapels, and a tailored fit. The warm and luxurious design makes it an excellent choice for formal events or chic everyday wear.",
-
-    price: 119.99,
-    uniqueCode: "J009",
-    quantity: 1,
-    inCart: false,
-  },
-  {
-    id: 20,
-    name: "Blazer Jacket",
-    imageUrl: "/images/jacket-10.jpg",
-    description:
-      "This tailored blazer jacket is a versatile addition to your wardrobe. Whether for professional settings or smart-casual occasions, its elegant design and polished finish ensure you always look sharp. Made from high-quality fabric, it features a single-breasted front, notched lapels, and functional pockets.",
-
-    price: 149.99,
-    uniqueCode: "JO10",
     quantity: 1,
     inCart: false,
   },
@@ -370,4 +370,4 @@ export const shoes = [
   },
 ];
 
-export const allProducts = [...hoodies, ...jackets, ...shoes];
+export const allProducts = [...jackets, ...hoodies, ...shoes];
