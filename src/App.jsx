@@ -6,6 +6,7 @@ const App = () => {
   const { allItems, setToAllProducts } = useCart();
 
   useEffect(() => {
+    console.log('Also running');
     setToAllProducts();
   }, [setToAllProducts]);
 

@@ -1,14 +1,15 @@
-import { createContext, useContext, useState } from "react";
 import { allProducts } from "../assets/data/index";
+import { createContext, useContext, useState, useCallback } from "react";
 
 const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
     const [allItems, setAllItems] = useState([]);
 
-    const setToAllProducts = () => {
+    // memoize setToAllProducts so that it can be safely added in dependency list in useEffect in App.jsx
+    const setToAllProducts = useCallback(() => { 
         setAllItems(allProducts); // Display all products on the UI
-    } 
+    }, []);
 
     // Adding products/items to shopping cart
     const addToCart = (item) => {
@@ -31,8 +32,17 @@ export const CartProvider = ({ children }) => {
         })
     }
 
+    const removeFromCart = (item) => {
+        // Remove entirely from cart. Not reduce quantity by clicking '-'.
+        setAllItems(prevItems => {
+            return prevItems.map((prevItem => {
+                return prevItem.id === item.id ? { ...prevItem, inCart: false, quantity: 1 } : prevItem; 
+            }))
+        })
+    }
+
     return (
-        <CartContext.Provider value={{ allItems, setToAllProducts, addToCart }}>
+        <CartContext.Provider value={{ allItems, setToAllProducts, addToCart, removeFromCart }}>
             { children }
         </CartContext.Provider>
     )
