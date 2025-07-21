@@ -1,7 +1,7 @@
-import React from 'react';
+import CartButtons from './CartButtons';
 
 const CartItem = ({ item }) => {
-    const { id, name, imageUrl, price } = item;
+    const { name, imageUrl, price } = item;
 
     return (
         <div className='group relative flex flex-col gap-y-2 border border-zinc-200
@@ -17,6 +17,7 @@ const CartItem = ({ item }) => {
                     ${ price }
                 </span>
             </div>
+            <CartButtons item={item} />
         </div>
     )
 }

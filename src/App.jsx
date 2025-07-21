@@ -9,6 +9,11 @@ const App = () => {
     setToAllProducts();
   }, [setToAllProducts]);
 
+  useEffect(() => {
+    // just monitor changes to allItems
+    console.log(allItems);
+  }, [allItems]);
+
   return (
     <div className='grid place-items-center py-20'>
       <h1 className="text-5xl text-stone-500 mb-16">
