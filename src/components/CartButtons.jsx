@@ -42,7 +42,7 @@ const CartButtons = ({ item }) => {
                                 >+</button>
                             </div>
                             <button 
-                                className='bg-violet-400 mx-auto mt-2 block rounded-md px-2 py-1 text-xs text-white hover:bg-violet-700 cursor-pointer'
+                                className='bg-violet-400 mx-auto mt-2 block rounded-md px-2 py-1 text-xs text-white hover:bg-violet-600 cursor-pointer'
                                 onClick={() => removeFromCart(item)}
                             >
                                 Remove
