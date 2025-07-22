@@ -1,17 +1,17 @@
 import { useCart } from '../context/cartContext';
 
-const CartButtons = ({ item }) => {
+const CartButtons = ({ item, fromCart }) => {
     const { addToCart, removeFromCart, updateCartQuantity } = useCart();
     
     return (
-        <div className='w-max absolute right-5 top-5'>
+        <div className={`w-max absolute right-5 top-5 ${fromCart && 'scale-90'}`}>
             <div className='space-x-3'>
                 {
                     !item.inCart ? (
                         <button
                             type="button"
-                            className='bg-zinc-400 border rounded-md px-2 py-1 text-sm text-white
-                            hover:bg-zinc-500 transition-colors cursor-pointer'
+                            className='bg-zinc-500 border rounded-md px-2 py-1 text-sm text-white
+                            hover:bg-zinc-600 transition-colors cursor-pointer'
                             onClick={() => addToCart(item)}
                         >
                             + Add to Cart

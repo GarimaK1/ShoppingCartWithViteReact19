@@ -26,7 +26,7 @@ const App = () => {
       <div className='grid grid-cols-3 place-items-start gap-10'>
         {
           allItems?.map((product) => (
-            <CartItem key={product.id} item={product} />
+            <CartItem key={product.id} item={product} fromCart={false} />
           ))
         }
       </div>
