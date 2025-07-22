@@ -1,13 +1,17 @@
+import { useState } from "react";
+import { CartContext } from "./allContexts";
 import { allProducts } from "../assets/data/index";
-import { createContext, useContext, useState } from "react";
-
-const CartContext = createContext();
+import {
+    getFromLocalStorage,
+    getParsedFromLocalStorage,
+    setInLocalStorage
+} from '../utils/localStorageFns';
 
 export const CartProvider = ({ children }) => {
     const [allItems, setAllItems] = useState([]);
 
     // memoize setToAllProducts so that it can be safely added in dependency list in useEffect in App.jsx
-    const setToAllProducts = () => { 
+    const setToAllProducts = () => {
         console.log('setToAllProducts ran');
         setAllItems(allProducts); // Display all products on the UI
     };
@@ -39,7 +43,7 @@ export const CartProvider = ({ children }) => {
         // Remove entirely from cart. Not reduce quantity by clicking '-'.
         setAllItems(prevItems => {
             return prevItems.map((prevItem => {
-                return prevItem.id === item.id ? { ...prevItem, inCart: false, quantity: 1 } : prevItem; 
+                return prevItem.id === item.id ? { ...prevItem, inCart: false, quantity: 1 } : prevItem;
             }))
         })
     }
@@ -54,13 +58,39 @@ export const CartProvider = ({ children }) => {
         })
     }
 
+    const setLocalStorage = () => {
+        if (allItems.length !== 0) {
+            const inCartItems = allItems.filter(item => item.inCart);
+            setInLocalStorage('cartItems', inCartItems);
+        }
+    }
+
+    const setCartItemsFromLocalStorage = () => {
+        // On restarting the app, if there are any products in local storage, update cart.
+        if (getFromLocalStorage('cartItems') !== null) {
+            const storageItems = getParsedFromLocalStorage('cartItems');
+
+            setAllItems((prevItems) => {
+                return prevItems.map((prevItem) => {
+                    const matchedItem = storageItems.find((storageItem) => storageItem.id === prevItem.id);
+                    return matchedItem ? matchedItem : prevItem;
+                })
+            })
+        }
+    }
+
     return (
-        <CartContext.Provider value={{ allItems, setToAllProducts, addToCart, removeFromCart, updateCartQuantity }}>
-            { children }
+        <CartContext.Provider
+            value={{
+                allItems,
+                setToAllProducts,
+                addToCart,
+                removeFromCart,
+                updateCartQuantity,
+                setLocalStorage,
+                setCartItemsFromLocalStorage
+            }}>
+            {children}
         </CartContext.Provider>
     )
-}
-
-export const useCart = () => {
-    return useContext(CartContext);
 }

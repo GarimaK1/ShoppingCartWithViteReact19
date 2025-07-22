@@ -1,6 +1,6 @@
 import { ShoppingCart, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
-import { useCart } from '../context/cartContext';
+import { useCart } from '../hooks/useCart';
 import CartItem from './CartItem';
 import formatCurrency from '../utils/formatCurrency';
 
@@ -10,7 +10,7 @@ const MyShoppingCart = () => {
     const [cartItems, setCartItems] = useState([]); // local state to track products in cart.
     const [totalPrice, setTotalPrice] = useState(0); // to track total price of all items in cart.
 
-    const { allItems } = useCart();
+    const { allItems, setLocalStorage } = useCart();
 
     useEffect(() => {
         const inCartItems = allItems.filter((item) => item.inCart)
@@ -22,6 +22,8 @@ const MyShoppingCart = () => {
         }, 0);
         console.log('price: ', price);
         setTotalPrice(price);
+
+        setLocalStorage();
     }, [allItems]);
 
     return (
