@@ -7,12 +7,13 @@ const App = () => {
 
   useEffect(() => {
     console.log('Also running');
-    setToAllProducts();
-  }, [setToAllProducts]);
+    setToAllProducts(); // reset all products when app loads.
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     // just monitor changes to allItems
-    console.log(allItems);
+    console.log(`allItems:`, allItems);
   }, [allItems]);
 
   return (
