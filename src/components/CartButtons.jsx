@@ -1,7 +1,7 @@
 import { useCart } from '../context/cartContext';
 
 const CartButtons = ({ item }) => {
-    const { addToCart, removeFromCart } = useCart();
+    const { addToCart, removeFromCart, updateCartQuantity } = useCart();
     
     return (
         <div className='w-max absolute right-5 top-5'>
@@ -19,12 +19,27 @@ const CartButtons = ({ item }) => {
                     ) : (
                         <div>
                             <div className='flex'>
-                                <button className='border rounded-lg px-3 cursor-pointer'>-</button>
+                                <button 
+                                    className='border rounded-lg px-3 cursor-pointer'
+                                    // onClick={() => {
+                                    //     if (item.quantity === 1) {
+                                    //         removeFromCart(item);
+                                    //     } else {
+                                    //         updateCartQuantity(item, -1)
+                                    //     }
+                                    // }}
+                                    onClick={() => {
+                                        (item.quantity === 1) ? removeFromCart(item) : updateCartQuantity(item, -1)
+                                    }}
+                                >-</button>
                                 <p className='flex items-center gap-x-1 mx-1 cursor-default'>
-                                    <span className='min-w-7 bg-green-100 flex items-center justify-center border rounded-full cursor-default'>1</span>
+                                    <span className='min-w-7 bg-green-100 flex items-center justify-center border rounded-full cursor-default'>{item.quantity}</span>
                                     <span className='text-xs cursor-default'>in cart</span>
                                 </p>
-                                <button className='border rounded-lg px-3 cursor-pointer'>+</button>
+                                <button 
+                                    className='border rounded-lg px-3 cursor-pointer'
+                                    onClick={() => updateCartQuantity(item, 1)}
+                                >+</button>
                             </div>
                             <button 
                                 className='bg-violet-400 mx-auto mt-2 block rounded-md px-2 py-1 text-xs text-white hover:bg-violet-700 cursor-pointer'

@@ -15,7 +15,7 @@ export const CartProvider = ({ children }) => {
     // Adding products/items to shopping cart
     const addToCart = (item) => {
         console.log('addToCart ran');
-        // Add/Remove from cart by changing the 'inCart' property of each product.
+        // Add/Remove from cart by changing the 'inCart' property of each product. Quantity is already 1.
         setAllItems(prevItems => {
             return prevItems.map(prevItem => {
                 // map function requires a return for every record in array.
@@ -25,7 +25,7 @@ export const CartProvider = ({ children }) => {
 
                 // Else, if the item is the one user is trying to add to cart, update the 'inCart' to true and return item
                 if (prevItem.id === item.id) {
-                    return { ...prevItem, inCart: true }
+                    return { ...prevItem, inCart: true } // Quantity is already 1.
                 } else {
                     // this is not the item user is trying to add to cart. Return as is.
                     return prevItem;
@@ -44,8 +44,18 @@ export const CartProvider = ({ children }) => {
         })
     }
 
+    const updateCartQuantity = (item, amount) => {
+        // Works for both '+' and '-' buttons, as amount is +1 or -1 respectively.
+        setAllItems((prevItems) => {
+            return prevItems.map((prevItem) => {
+                // If we find the item that we are trying to update, update it. REturn the rest unchanged.
+                return prevItem.id === item.id ? { ...prevItem, quantity: prevItem.quantity + amount } : prevItem;
+            })
+        })
+    }
+
     return (
-        <CartContext.Provider value={{ allItems, setToAllProducts, addToCart, removeFromCart }}>
+        <CartContext.Provider value={{ allItems, setToAllProducts, addToCart, removeFromCart, updateCartQuantity }}>
             { children }
         </CartContext.Provider>
     )
