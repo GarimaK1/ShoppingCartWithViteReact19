@@ -15,7 +15,7 @@ const MyShoppingCart = () => {
     useEffect(() => {
         const inCartItems = allItems.filter((item) => item.inCart)
         console.log('inCartItems: ', inCartItems);
-        setCartItems(inCartItems?.reverse()); // using reverse so that most recently added items appears first.
+        setCartItems([...inCartItems]?.reverse()); // using reverse so that most recently added items appears first.
 
         const price = inCartItems?.reduce((accumulator, currVal) => {
             return (accumulator += (currVal.price * currVal.quantity))
@@ -24,7 +24,7 @@ const MyShoppingCart = () => {
         setTotalPrice(price);
 
         setLocalStorage();
-    }, [allItems]);
+    }, [allItems, setLocalStorage]);
 
     return (
         <>

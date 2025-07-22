@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { CartContext } from "./allContexts";
+import { useState, useCallback } from "react";
+import { CartContext } from "./createdContexts";
 import { allProducts } from "../assets/data/index";
 import {
     getFromLocalStorage,
@@ -8,16 +8,16 @@ import {
 } from '../utils/localStorageFns';
 
 export const CartProvider = ({ children }) => {
-    const [allItems, setAllItems] = useState([]);
+    const [allItems, setAllItems] = useState(allProducts);
 
     // memoize setToAllProducts so that it can be safely added in dependency list in useEffect in App.jsx
-    const setToAllProducts = () => {
+    const setToAllProducts = useCallback(() => {
         console.log('setToAllProducts ran');
         setAllItems(allProducts); // Display all products on the UI
-    };
+    }, []);
 
     // Adding products/items to shopping cart
-    const addToCart = (item) => {
+    const addToCart = useCallback((item) => {
         console.log('addToCart ran');
         // Add/Remove from cart by changing the 'inCart' property of each product. Quantity is already 1.
         setAllItems(prevItems => {
@@ -36,9 +36,9 @@ export const CartProvider = ({ children }) => {
                 }
             })
         })
-    }
+    }, []);
 
-    const removeFromCart = (item) => {
+    const removeFromCart = useCallback((item) => {
         console.log('removeFromCart ran');
         // Remove entirely from cart. Not reduce quantity by clicking '-'.
         setAllItems(prevItems => {
@@ -46,27 +46,30 @@ export const CartProvider = ({ children }) => {
                 return prevItem.id === item.id ? { ...prevItem, inCart: false, quantity: 1 } : prevItem;
             }))
         })
-    }
+    }, []);
 
-    const updateCartQuantity = (item, amount) => {
+    const updateCartQuantity = useCallback((item, amount) => {
         // Works for both '+' and '-' buttons, as amount is +1 or -1 respectively.
+        console.log('updateCartQuantity ran');
         setAllItems((prevItems) => {
             return prevItems.map((prevItem) => {
                 // If we find the item that we are trying to update, update it. REturn the rest unchanged.
                 return prevItem.id === item.id ? { ...prevItem, quantity: prevItem.quantity + amount } : prevItem;
             })
         })
-    }
+    }, []);
 
-    const setLocalStorage = () => {
+    const setLocalStorage = useCallback(() => {
+        console.log('setLocalStorage ran');
         if (allItems.length !== 0) {
             const inCartItems = allItems.filter(item => item.inCart);
             setInLocalStorage('cartItems', inCartItems);
         }
-    }
+    }, [allItems]);
 
-    const setCartItemsFromLocalStorage = () => {
+    const setCartItemsFromLocalStorage = useCallback(() => {
         // On restarting the app, if there are any products in local storage, update cart.
+        console.log('setCartItemsFromLocalStorage ran');
         if (getFromLocalStorage('cartItems') !== null) {
             const storageItems = getParsedFromLocalStorage('cartItems');
 
@@ -77,7 +80,7 @@ export const CartProvider = ({ children }) => {
                 })
             })
         }
-    }
+    }, []);
 
     return (
         <CartContext.Provider

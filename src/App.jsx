@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useCart } from './hooks/useCart';
 import { getFromLocalStorage, getParsedFromLocalStorage } from './utils/localStorageFns';
 import CartItem from './components/CartItem';
@@ -11,12 +11,11 @@ const App = () => {
     console.log('Also running');
     setToAllProducts(); // reset all products when app loads.
 
-    if (getFromLocalStorage('cartItems') !== null && getParsedFromLocalStorage('cartITems')?.length !== 0) {
+    if (getFromLocalStorage('cartItems') !== null && getParsedFromLocalStorage('cartItems')?.length !== 0) {
       setCartItemsFromLocalStorage();
     }
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [setToAllProducts, setCartItemsFromLocalStorage]);
 
   useEffect(() => {
     // just monitor changes to allItems
