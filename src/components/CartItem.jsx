@@ -6,7 +6,7 @@ const CartItem = ({ item, fromCart }) => {
 
     return (
         <div className='group relative flex flex-col gap-y-2 border border-zinc-200
-                        rounded-md bg-white p-24'>
+                        rounded-md bg-white p-24 h-full'>
             <img src={imageUrl} alt={name} width={300} height={300} 
                     className={`${!fromCart && 'group-hover:-translate-y-2 transition-all duration-500'}`} 
             />

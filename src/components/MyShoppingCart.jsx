@@ -75,7 +75,7 @@ const MyShoppingCart = () => {
                                 })
                             }
                         </div>
-                        <div className='absolute bottom-0 left-0 z-10 w-full h-20 bg-white
+                        <div className='absolute bottom-0 left-0 z-10 w-full h-20 pb-2 bg-white
                                 grid place-items-center border border-zinc-200 rounded-lg'
                         >
                             <h1 className='text-base text-stone-600'>Total: {formatCurrency(totalPrice)} </h1>
