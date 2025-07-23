@@ -5,8 +5,8 @@ const CartItem = ({ item, fromCart }) => {
     const { name, imageUrl, price } = item;
 
     return (
-        <div className='group relative flex flex-col gap-y-2 border border-zinc-200
-                        rounded-md bg-white p-24 h-full'>
+        <div className={`group relative flex flex-col gap-y-2 border border-zinc-200
+                        rounded-md bg-white p-24 ${!fromCart && 'h-full'}`}>
             <img src={imageUrl} alt={name} width={300} height={300} 
                     className={`${!fromCart && 'group-hover:-translate-y-2 transition-all duration-500'}`} 
             />
