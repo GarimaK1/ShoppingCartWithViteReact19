@@ -8,7 +8,7 @@ import {
 } from '../utils/localStorageFns';
 
 export const CartProvider = ({ children }) => {
-    const [allItems, setAllItems] = useState(allProducts);
+    const [allItems, setAllItems] = useState([]);
 
     // memoize setToAllProducts so that it can be safely added in dependency list in useEffect in App.jsx
     const setToAllProducts = useCallback(() => {

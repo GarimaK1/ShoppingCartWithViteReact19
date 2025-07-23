@@ -9,6 +9,7 @@ const MyShoppingCart = () => {
     const [isOpen, setIsOpen] = useState(false); // to track if cart is open or close.
     const [cartItems, setCartItems] = useState([]); // local state to track products in cart.
     const [totalPrice, setTotalPrice] = useState(0); // to track total price of all items in cart.
+    const [totalQuantity, setTotalQuantity] = useState(0); // to track total quantity of all items in cart.
 
     const { allItems, setLocalStorage } = useCart();
 
@@ -22,6 +23,12 @@ const MyShoppingCart = () => {
         }, 0);
         console.log('price: ', price);
         setTotalPrice(price);
+
+        const quantity = inCartItems?.reduce((accumulator, currVal) => {
+            return (accumulator += currVal.quantity)
+        }, 0);
+        console.log('quantity: ', quantity);
+        setTotalQuantity(quantity);
 
         setLocalStorage();
     }, [allItems, setLocalStorage]);
@@ -57,7 +64,7 @@ const MyShoppingCart = () => {
                                     rounded-full text-xs text-white'
                             >
                                 {
-                                    (cartItems.length > 9) ? '9+' : cartItems.length
+                                    totalQuantity > 9 ? '9+' : totalQuantity
                                 }
                             </span>
                         </button>
