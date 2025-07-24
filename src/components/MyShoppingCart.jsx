@@ -70,7 +70,7 @@ const MyShoppingCart = () => {
                     </button>
                 </div>
 
-                <div className='h-screen flex flex-col gap-y-3 overflow-y-scroll px-5 pb-24 pt-20'>
+                <div className='h-screen flex flex-col gap-y-3 overflow-y-auto px-5 pb-24 pt-20'>
                     {
                         totalQuantity ? (
                             cartItems?.map((cartItem) => {
